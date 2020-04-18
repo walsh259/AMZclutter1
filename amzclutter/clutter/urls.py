@@ -1,0 +1,16 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("", views.index, name="index"),
+    path("items", views.items, name="items"),
+    path("potentials", views.potentials, name="potentials"),
+    path("suppliers", views.suppliers, name="suppliers"),
+    path("history", views.potentials, name="history"),
+    path("designers", views.potentials, name="designers"),
+    path("files", views.potentials, name="files"),
+
+    path("products", views.products, name="products"),
+    path("<int:product_id>", views.product, name="product"),
+    path("<int:supplier_id>", views.supplier, name="supplier"),
+]

@@ -1,0 +1,295 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <title>AMX Clutter - Optimized </title>
+        <meta content="Admin Dashboard" name="description" />
+        <meta content="ThemeDesign" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+
+        <!--Morris Chart CSS -->
+        <link rel="stylesheet" href="{% static 'assets/plugins/morris/morris.css' %}">
+
+        <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css">
+
+    </head>
+
+
+    <body class="fixed-left">
+
+        <!-- Loader -->
+        <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+                <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
+                    <i class="ion-close"></i>
+                </button>
+
+                <div class="left-side-logo d-block d-lg-none">
+                    <div class="text-center">
+
+                        <a href="#" class="logo"><img src="{% static 'assets/images/logo.png' %}" height="20" alt="logo"></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-inner slimscrollleft">
+
+                    <div id="sidebar-menu">
+                        <ul>
+
+
+                            <li>
+                                <a href="index.html" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Dashboard <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-briefcase"></i> <span> Item Pricing </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                  <li><a href="% url 'items' %}">Item Price</a></li>
+                                    <li><a href="ui-alerts.html">Add Unit Cost</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-broadcast"></i> <span> Potential Products </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{% url 'potentials' %}">Potential Items</a></li>
+                                    <li><a href="advanced-alertify.html">Add Potential Products</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="{% url 'suppliers' %}" class="waves-effect"><i class="dripicons-document"></i><span> Suppliers </span> <span class="badge badge-warning badge-pill float-right">8</span></a>
+                                <ul class="list-unstyled">
+                                  <li><a href="{% url 'suppliers' %}">All Suppliers</a></li>
+                                    <li><a href="form-elements.html">Add Supplier</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-list"></i><span> Order History </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{% url 'history' %}">Order History </a></li>
+                                    <li><a href="tables-datatable.html">Open Orders</a></li>
+                                    <li><a href="tables-responsive.html">Quotes</a></li>
+                                    <li><a href="tables-editable.html">Transations/a></li>
+                                </ul>
+                            </li>
+
+                            <li class="menu-title">Creatives</li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-location"></i><span> Graphic Designers </span> <span class="badge badge-danger badge-pill float-right">2</span></a>
+                                <ul class="list-unstyled">
+                                  <li><a href="{% url 'designers' %}">Designers</a></li>
+                                    <li><a href="maps-google.html"> Add Designer</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-brightness-max"></i> <span> File Store </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{% url 'files' %}">File Store</a></li>
+                                    <li><a href="icons-material.html">Product Artwork</a></li>
+                                    <li><a href="icons-ion.html">Packaging Design</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div> <!-- end sidebarinner -->
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- Start right Content here -->
+
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+
+                    <!-- Top Bar Start -->
+                    <div class="topbar">
+
+                        <div class="topbar-left	d-none d-lg-block">
+                            <div class="text-center">
+
+                                <a href="index.html" class="logo"><img src="{% static 'assets/images/logo.png' %}" height="20" alt="logo"></a>
+                            </div>
+                        </div>
+
+                        <nav class="navbar-custom">
+
+                            <ul class="list-inline float-right mb-0">
+                                <li class="list-inline-item notification-list dropdown d-none d-sm-inline-block">
+                                    <form role="search" class="app-search">
+                                        <div class="form-group mb-0">
+                                            <input type="text" class="form-control" placeholder="Search..">
+                                            <button type="submit"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="list-inline-item dropdown notification-list">
+                                    <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
+                                       aria-haspopup="false" aria-expanded="false">
+                                        <i class="mdi mdi-email-outline noti-icon"></i>
+                                        <span class="badge badge-danger badge-pill noti-icon-badge">5</span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-lg">
+                                        <!-- item-->
+                                        <div class="dropdown-item noti-title">
+                                            <span class="badge badge-danger float-right">367</span>
+                                            <h5>Messages</h5>
+                                        </div>
+                                        <div class="slimscroll" style="max-height: 230px;">
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                                <div class="notify-icon"><img src="{% static 'assets/images/users/user-2.jpg' %}" alt="user-img" class="img-fluid rounded-circle" /> </div>
+                                                <p class="notify-details"><b>Charles M. Jones</b><span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
+                                            </a>
+
+
+                                        </div>
+
+
+                                        <!-- All-->
+                                        <a href="javascript:void(0);" class="dropdown-item notify-all">
+                                            View All
+                                        </a>
+
+                                    </div>
+                                </li>
+
+                                <li class="list-inline-item dropdown notification-list">
+                                    <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
+                                       aria-haspopup="false" aria-expanded="false">
+                                        <i class="mdi mdi-bell-outline noti-icon"></i>
+                                        <span class="badge badge-success badge-pill noti-icon-badge">3</span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-lg">
+                                        <!-- item-->
+                                        <div class="dropdown-item noti-title">
+                                            <span class="badge badge-danger float-right">84</span>
+                                            <h5>Notification</h5>
+                                        </div>
+
+                                        <div class="slimscroll" style="max-height: 230px;">
+
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                                <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                                <p class="notify-details">Your order is placed<span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
+                                            </a>
+
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                                <div class="notify-icon bg-success"><i class="mdi mdi-message"></i></div>
+                                                <p class="notify-details">New Message received<span class="text-muted">You have 87 unread messages</span></p>
+                                            </a>
+
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                                <div class="notify-icon bg-warning"><i class="mdi mdi-martini"></i></div>
+                                                <p class="notify-details">Your item is shipped<span class="text-muted">It is a long established fact that a reader will</span></p>
+                                            </a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                                <div class="notify-icon bg-danger"><i class="mdi mdi-message"></i></div>
+                                                <p class="notify-details">New Message received<span class="text-muted">You have 87 unread messages</span></p>
+                                            </a>
+
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                                <div class="notify-icon bg-info"><i class="mdi mdi-martini"></i></div>
+                                                <p class="notify-details">Your item is shipped<span class="text-muted">It is a long established fact that a reader will</span></p>
+                                            </a>
+                                        </div>
+
+                                        <!-- All-->
+                                        <a href="javascript:void(0);" class="dropdown-item notify-all">
+                                            View All
+                                        </a>
+
+                                    </div>
+                                </li>
+
+                                <li class="list-inline-item dropdown notification-list">
+                                    <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
+                                       aria-haspopup="false" aria-expanded="false">
+                                        <img src="{% static 'assets/images/users/user-1.jpg' %}" alt="user" class="rounded-circle">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
+                                        <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a>
+                                        <a class="dropdown-item" href="#"><span class="badge badge-success mt-1 float-right">5</span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a>
+                                        <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5 text-muted"></i> Lock screen</a>
+                                        <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                            <ul class="list-inline menu-left mb-0">
+                                <li class="list-inline-item">
+                                    <button type="button" class="button-menu-mobile open-left waves-effect">
+                                        <i class="ion-navicon"></i>
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="clearfix"></div>
+
+                        </nav>
+
+                    </div>
+                    <!-- Top Bar End -->
+
+                    <div class="page-content-wrapper ">
+
+                        <div class="container-fluid">
+
+  <body>
+    <h1>{% block title %}{% endblock %}</h1>
+    {% block body %}
+    {% endblock %}
+
+  {% block footer %}
+  {% endblock %}
+
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/modernizr.min.js' %}"></script>
+  <script src="{% static 'assets/js/detect.js' %}"></script>
+  <script src="{% static 'assets/js/fastclick.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.slimscroll.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.blockUI.js' %}"></script>
+  <script src="{% static 'assets/js/waves.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.nicescroll.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.scrollTo.min.js' %}"></script>
+
+  <!-- Alertify js -->
+  <script src="{% static 'assets/plugins/alertify/js/alertify.js' %}"></script>
+  <script src="{% static 'assets/pages/alertify-init.js' %}"></script>
+
+  <!-- App js -->
+  <script src="{% static 'assets/js/app.js' %}"></script>
+</body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

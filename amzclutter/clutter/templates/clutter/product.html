@@ -1,0 +1,14 @@
+{% extends "clutter/base.html" %}
+{% load static %}
+{% block body %}
+
+    <h1>Product {{product.id}}</h1>
+    <ul>
+        <li>
+          {{ product.name }} ${{ product.unit_cost }} [{{ product.sku }}]
+          </li>
+
+      </ul>
+      <a href="{% url 'index' %}">Back</a>
+
+{% endblock %}
