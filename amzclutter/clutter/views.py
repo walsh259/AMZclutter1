@@ -1,10 +1,24 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
+from .forms import ContactForm
 from .models import Product
 from .models import Supplier
 # from .models import Suppliers
 #
 
+def contact(request):
+
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+
+            print(name, email)
+
+    form = ContactForm()
+    return render(request, 'clutter/contact.html', {'form': form})
 
 def index(request):
     context = {
@@ -42,6 +56,11 @@ def files(request):
     }
     return render(request, 'clutter/files.html', context)
 
+def uploads(request):
+    context = {
+        "products": Product.objects.all()
+    }
+    return render(request, 'clutter/uploads.html', context)
 
 def products(request):
     context = {

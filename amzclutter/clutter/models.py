@@ -1,4 +1,5 @@
 from django.db import models
+# from django import Forms
 
 # Create your models here.
 class Supplier(models.Model):
