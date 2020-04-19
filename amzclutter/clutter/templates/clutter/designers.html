@@ -1,0 +1,50 @@
+{% extends "clutter/base.html" %}
+{% load static %}
+{% block title %}
+  Designers & Freelance Contacts
+{% endblock %}
+{% block body %}
+<tr>
+  <th scope="row">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card m-b-30">
+                <div class="card-body">
+
+
+                    <h4 class="mt-0 header-title">Designers</h4>
+                    <p class="text-muted m-b-30 font-14">
+                        Black Book of Designers.
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            {% for designer in designers%}
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><a href="{% url 'designer' designer.id %}">{{ designer.id }}</th>
+                                    <td>{{ designer.company }}</td>
+                                    <td>{{ designer.contact }}</td>
+                                    <td>{{ designer.email}}</td>
+                                </tr>
+                              {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end col -->
+
+{% endblock %}
+
+{% block footer %}
+  Amazon Clutter - Keeping Track
+{% endblock %}

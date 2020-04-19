@@ -13,8 +13,9 @@
       <th scope="col">Sku</th>
       <th scope="col">Unit Cost</th>
       <th scope="col">Average Fee</th>
-      <th scope="col">RRP</th>
       <th scope="col">Shipping</th>
+      <th scope="col">RRP</th>
+      <th scope="col">Total Combined Cost</th>
       <th scope="col">Supplier</th>
     </tr>
   </thead>
@@ -24,18 +25,121 @@
       <th scope="row"><a href="{% url 'product' product.id %}">{{ product.id }}</th>
       <td>{{ product.name }}</td>
       <td>{{ product.sku }}</td>
-      <td>{{ product.unit_cost }}</td>
-      <td>{{ product.average_fee }}</td>
-      <td>{{ product.rrp }}</td>
-      <td>{{ product.shipping_fee}}</td>
-      <td>{{ product.agent.company}}</td>
+      <td class="table-primary">{{ product.unit_cost }}</td>
+      <td class="table-warning">{{ product.average_fee }}</td>
+      <td class="table-warning">{{ product.shipping_fee}}</td>
+      <td class="table-success">{{ product.rrp }}</td>
+      <td class="table-danger">{{ product.unit_cost|add:product.average_fee|add:product.shipping_fee }}</td>
+      <th scope="row"><a href="{% url 'suppliers'  %}">{{ product.agent.company}}</th>
+
     </tr>
     <tr>
   {% endfor %}
   </tbody>
 </table>
+
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card m-b-30">
+            <div class="card-body">
+
+                <h4 class="mt-0 header-title">Default Tabs</h4>
+                <p class="text-muted m-b-30 font-14">Use the tab JavaScript plugin—include
+                    it individually or through the compiled <code class="highlighter-rouge">bootstrap.js</code>
+                    file—to extend our navigational tabs and pills to create tabbable panes
+                    of local content, even via dropdown menus.</p>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Messages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active p-3" id="home" role="tabpanel">
+                        <p class="font-14 mb-0">
+                            Raw denim you probably haven't heard of them jean shorts Austin.
+                            Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
+                            cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                            butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi,
+                            qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+                            iphone. Seitan aliquip quis cardigan american apparel, butcher
+                            voluptate nisi qui.
+                        </p>
+                    </div>
+                    <div class="tab-pane p-3" id="profile" role="tabpanel">
+                        <p class="font-14 mb-0">
+                            Food truck fixie locavore, accusamus mcsweeney's marfa nulla
+                            single-origin coffee squid. Exercitation +1 labore velit, blog
+                            sartorial PBR leggings next level wes anderson artisan four loko
+                            farm-to-table craft beer twee. Qui photo booth letterpress,
+                            commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
+                            vinyl cillum PBR. Homo nostrud organic, assumenda labore
+                            aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr,
+                            vero magna velit sapiente labore stumptown. Vegan fanny pack
+                            odio cillum wes anderson 8-bit.
+                        </p>
+                    </div>
+                    <div class="tab-pane p-3" id="messages" role="tabpanel">
+                        <p class="font-14 mb-0">
+                            Etsy mixtape wayfarers, ethical wes anderson tofu before they
+                            sold out mcsweeney's organic lomo retro fanny pack lo-fi
+                            farm-to-table readymade. Messenger bag gentrify pitchfork
+                            tattooed craft beer, iphone skateboard locavore carles etsy
+                            salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
+                            Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh
+                            mi whatever gluten-free, carles pitchfork biodiesel fixie etsy
+                            retro mlkshk vice blog. Scenester cred you probably haven't
+                            heard of them, vinyl craft beer blog stumptown. Pitchfork
+                            sustainable tofu synth chambray yr.
+                        </p>
+                    </div>
+                    <div class="tab-pane p-3" id="settings" role="tabpanel">
+                        <p class="font-14 mb-0">
+                            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
+                            art party before they sold out master cleanse gluten-free squid
+                            scenester freegan cosby sweater. Fanny pack portland seitan DIY,
+                            art party locavore wolf cliche high life echo park Austin. Cred
+                            vinyl keffiyeh DIY salvia PBR, banh mi before they sold out
+                            farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral,
+                            mustache readymade thundercats keffiyeh craft beer marfa
+                            ethical. Wolf salvia freegan, sartorial keffiyeh echo park
+                            vegan.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block footer %}
   Amazon Clutter - Keeping Track
 {% endblock %}
+<!-- jQuery  -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/modernizr.min.js"></script>
+<script src="assets/js/detect.js"></script>
+<script src="assets/js/fastclick.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/jquery.blockUI.js"></script>
+<script src="assets/js/waves.js"></script>
+<script src="assets/js/jquery.nicescroll.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+
+<!-- App js -->
+<script src="assets/js/app.js"></script>

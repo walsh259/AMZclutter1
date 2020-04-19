@@ -1,7 +1,7 @@
 {% extends "clutter/base.html" %}
 
 {% block title %}
-  Products
+  Products/Items Unit Costs
 {% endblock %}
 
 {% block body %}
@@ -28,7 +28,7 @@
       <td>{{ product.average_fee }}</td>
       <td>{{ product.rrp }}</td>
       <td>{{ product.shipping_fee}}</td>
-      <td>{{ product.agent.company}}</td>
+      <td><a href="{% url 'supplier' supplier.id %}">{{ product.agent.company}}</td>
     </tr>
     <tr>
   {% endfor %}

@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .forms import ContactForm
 from .models import Product
 from .models import Supplier
+from .models import Designer
 # from .models import Suppliers
 #
 
@@ -46,9 +47,19 @@ def history(request):
 
 def designers(request):
     context = {
-        "products": Product.objects.all()
+        "designers": Designer.objects.all()
     }
     return render(request, 'clutter/designers.html', context)
+
+def designer(request, designer_id):
+    try:
+        designer = Designer.objects.get(pk=designer_id)
+    except designer.DoesNotExist:
+        raise Http404("Designer does not exist.")
+    context = {
+    "designer": designer
+    }
+    return render(request, "clutter/designer.html", context)
 
 def files(request):
     context = {
@@ -78,6 +89,7 @@ def product(request, product_id):
     "product": product
     }
     return render(request, "clutter/product.html", context)
+
 
 def suppliers(request):
     context = {

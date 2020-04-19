@@ -1,0 +1,14 @@
+{% extends "clutter/base.html" %}
+{% load static %}
+{% block body %}
+
+    <h1>Supplier {{supplier.id}}</h1>
+    <ul>
+        <li>
+          {{ supplier.company }} ${{ supplier.name }} [{{ supplier.email}}]
+          </li>
+
+      </ul>
+      <a href="{% url 'index' %}">Back</a>
+
+{% endblock %}

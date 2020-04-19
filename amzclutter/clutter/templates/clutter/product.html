@@ -1,14 +1,168 @@
 {% extends "clutter/base.html" %}
 {% load static %}
+{% load mathfilters %}
 {% block body %}
 
-    <h1>Product {{product.id}}</h1>
-    <ul>
-        <li>
-          {{ product.name }} ${{ product.unit_cost }} [{{ product.sku }}]
-          </li>
+<div class="page-content-wrapper ">
 
-      </ul>
+    <div class="container-fluid">
+
+        <div class="row">
+
+                <h5 class="page-title">Product : {{product.name}}</h5>
+
+            </div>
+        </div>
+
       <a href="{% url 'index' %}">Back</a>
+
+      <div class="row">
+
+              <div class="card m-b-30">
+                  <div class="card-body">
+
+                      <h4 class="mt-0 header-title">Default Tabs</h4>
+                      <p class="text-muted m-b-30 font-14">Use the tab JavaScript plugin—include
+                          it individually or through the compiled <code class="highlighter-rouge">bootstrap.js</code>
+                          file—to extend our navigational tabs and pills to create tabbable panes
+                          of local content, even via dropdown menus.</p>
+
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                          <li class="nav-item">
+                              <a class="nav-link active" data-toggle="tab" href="#cost" role="tab">Cost</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#dimensions3" role="tab">Dimensions</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#market" role="tab">Market Details</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#note" role="tab">Notes</a>
+                          </li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                          <div class="tab-pane active p-3" id="cost" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="table table-bordered mb-0">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Unit Cost</th>
+                                            <th>Shipping Cost</th>
+                                            <th>Referal Fee Cost</th>
+                                            <th>Prep Fees</th>
+                                            <th>Reccomended Retail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ product.unit_cost }}</td>
+                                            <td>{{ product.shipping_fee }}</td>
+                                            <td>{{ product.average_fee }}</td>
+                                            <td>{{ product.prep_fees }}</td>
+                                            <td>{{ product.rrp }}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                          </div>
+                          <div class="tab-pane p-3" id="dimensions3" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="table table-bordered mb-0">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Unit Weight</th>
+                                            <th>Unit Height</th>
+                                            <th>Unit Width</th>
+                                            <th>Unit Length</th>
+                                            <th>Units Per Carton</th>
+                                            <th>Carton Weight</th>
+                                            <th>Carton Height</th>
+                                            <th>Carton Width</th>
+                                            <th>Carton Length</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ product.weight }}</td>
+                                            <td>{{ product.height }}</td>
+                                            <td>{{ product.width }}</td>
+                                            <td>{{ product.length }}</td>
+                                            <td>{{ product.units_carton }}</td>
+                                            <td>{{ product.carton_weight }}</td>
+                                            <td>{{ product.carton_height }}</td>
+                                            <td>{{ product.carton_width }}</td>
+                                            <td>{{ product.carton_length }}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                          </div>
+                          <div class="tab-pane p-3" id="market" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="table table-bordered mb-0">
+                                    <thead>
+                                        <tr>
+
+                                            <th>SKU</th>
+                                            <th>EAN</th>
+                                            <th>ASIN</th>
+                                            <th>Amazon Link</th>
+                                            <th>Ebay Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ product.sku }}</td>
+                                            <td>{{ product.ean }}</td>
+                                            <td>{{ product.asin }}</td>
+                                            <td><a target=_blank href="{{product.amazon_link }}">{{ product.amazon_link}}</td>
+                                            <td><a target=_blank href="{{ebay.amazon_link }}">{{ product.ebay_link }}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                          </div>
+                          <div class="tab-pane p-3" id="note" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="table table-bordered mb-0">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Notes</th>
+                                            <th>Trademark</th>
+                                            <th>Shipmark</th>
+                                            <th>Lead Time</th>
+                                            <th>Supplier</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ product.notes }}</td>
+                                            <td>{{ product.shipmark }}</td>
+                                            <td>{{ product.trademark }}</td>
+                                            <td>{{ product.lead_time }}</td>
+                                            <td>{{ product.agent.company}}</td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                          </div>
+                      </div>
+
+
+              </div>
+          </div>
 
 {% endblock %}
